@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Category List Page</h1>
+
+
+<div class="container routing-button">
+    <a href="/inventory/category/add/">
+        <button class="btn btn-primary">Add Category</button>
+    </a>
+</div>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for a in all_category %}
+
+                <tr>
+                    <td>{{a.category_name}}</td>
+                    <td>{{a.description}}</td>
+                    <td>
+                        <a href="{% url 'category_update' a.id %}">
+                            <button class="btn btn-info">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'category_delete' a.id %}">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

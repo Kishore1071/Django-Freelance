@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    
+{% block content %}    
 
     <div class="container mt-5">
-
+ 
         <h1 class="fs-4 text-center">User List</h1>
+
+        <div class="w-100 text-end">
+            <a href="/user/create/">
+                <button class="btn btn-primary">+Add User</button>
+            </a>
+        </div>
 
         <table class="table">
 
@@ -46,11 +51,15 @@
                         <td>{{user.phone_number}}</td>
                         
                         <td>
-                            <i class='fas fa-edit' style='font-size:24px; color: blue'></i>
+                            <a href="{% url 'update_user' user.id %}">
+                                <i class='fas fa-edit' style='font-size:24px; color: blue'></i>
+                            </a>
                         </td>
                         
                         <td>
-                            <i class='fas fa-trash-alt' style='font-size:24px; color: red'></i>
+                            <a href="{% url 'delete_user' user.id %}">
+                                <i class='fas fa-trash-alt' style='font-size:24px; color: red'></i>
+                            </a>
                         </td>
                         
                     </tr>

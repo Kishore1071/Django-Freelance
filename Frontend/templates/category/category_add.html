@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Category Adding Page</h1>
+
+<div class="container routing-button">
+    <a href="/inventory/category/list/">
+        <button class="btn btn-secondary">Back</button>
+    </a>
+</div>
+
+<form class="data-form" action="" method="POST">
+    {{category_form}}
+
+    {% csrf_token %}
+
+    <input type="submit" class="btn btn-primary form-control my-3">
+</form>
+
+{% endblock %}
